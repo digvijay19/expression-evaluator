@@ -1,0 +1,1 @@
+java -cp $EVALUATOR_HOME/lib/evaluator.jar digvijag.evaluator.cli.ExpressionEvaluator $@
