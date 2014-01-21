@@ -1,4 +1,4 @@
-expression-evaluator
+Expression-Evaluator
 ====================
 expression-evaluator evaluates the given expression.
 
@@ -9,14 +9,12 @@ expression-evaluator evaluates the given expression.
 * Set the environment variable with the name of `EVALUATOR_HOME`.
 * Use shell file to run evaluator.
 
-### How to use evaluator and what precautions must be taken.
+### Release 0.1 :-
 
-* The expression takes one operation `(+,-,*,/,^)` and two operands(Do not use brackets `()`).
+* The expression takes one operation `( + , - , * , / , ^ )` and two operands
+* Do not support brackets `()`.
 * No spaces will be allowed in the expression.
 * Only positive Integers will be supported.
-```
-eg :- 3+2
-```
 
 #### expression-evaluator :
 
@@ -24,5 +22,5 @@ eg :- 3+2
 * This shell file takes one argument which is expression.
 ```
 eg:- expression-evaluator.sh '3+2'
-will give 5 as answer.
+will give answer 5.
 ```
