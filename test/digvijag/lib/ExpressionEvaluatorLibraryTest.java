@@ -45,4 +45,12 @@ public class ExpressionEvaluatorLibraryTest {
         int actual = evaluator.evaluate("2^2");
         assertEquals(expected, actual);
     }
+
+    @Test
+    public void test_when_no_operation_is_specified() {
+        ExpressionEvaluatorLibrary evaluator = new ExpressionEvaluatorLibrary();
+        int expected = 2;
+        int actual = evaluator.evaluate("2");
+        assertEquals(expected, actual);
+    }
 }

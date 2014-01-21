@@ -9,21 +9,25 @@ public class ExpressionEvaluatorLibrary {
                 numberOne = Integer.parseInt(expression.substring(0, i));
                 numberTwo = Integer.parseInt(expression.substring(i + 1, expression.length()));
                 result = numberOne + numberTwo;
+                return result;
             }
             if ('-' == expression.charAt(i)) {
                 numberOne = Integer.parseInt(expression.substring(0, i));
                 numberTwo = Integer.parseInt(expression.substring(i + 1, expression.length()));
                 result = numberOne - numberTwo;
+                return result;
             }
             if ('*' == expression.charAt(i)) {
                 numberOne = Integer.parseInt(expression.substring(0, i));
                 numberTwo = Integer.parseInt(expression.substring(i + 1, expression.length()));
                 result = numberOne * numberTwo;
+                return result;
             }
             if ('/' == expression.charAt(i)) {
                 numberOne = Integer.parseInt(expression.substring(0, i));
                 numberTwo = Integer.parseInt(expression.substring(i + 1, expression.length()));
                 result = numberOne / numberTwo;
+                return result;
             }
             if ('^' == expression.charAt(i)) {
                 result = 1;
@@ -32,8 +36,9 @@ public class ExpressionEvaluatorLibrary {
                 for (int j = 0; j < numberTwo; j++) {
                     result *= numberOne;
                 }
+                return result;
             }
         }
-        return result;
+        return Integer.parseInt(expression);
     }
 }
