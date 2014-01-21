@@ -11,20 +11,30 @@ public class ExpressionEvaluatorLibraryTest {
         ExpressionEvaluatorLibrary evaluator = new ExpressionEvaluatorLibrary();
         int expected = 5;
         int actual = evaluator.evaluate("2+3");
-        assertEquals(expected,actual);
+        assertEquals(expected, actual);
     }
+
     @Test
     public void test_subtraction_of_two_integers() {
         ExpressionEvaluatorLibrary evaluator = new ExpressionEvaluatorLibrary();
         int expected = 1;
         int actual = evaluator.evaluate("3-2");
-        assertEquals(expected,actual);
+        assertEquals(expected, actual);
     }
+
     @Test
     public void test_multiplication_of_two_integers() {
         ExpressionEvaluatorLibrary evaluator = new ExpressionEvaluatorLibrary();
         int expected = 6;
         int actual = evaluator.evaluate("3*2");
-        assertEquals(expected,actual);
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void test_division_of_two_integers() {
+        ExpressionEvaluatorLibrary evaluator = new ExpressionEvaluatorLibrary();
+        int expected = 3;
+        int actual = evaluator.evaluate("6/2");
+        assertEquals(expected, actual);
     }
 }
