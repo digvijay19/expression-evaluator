@@ -37,4 +37,12 @@ public class ExpressionEvaluatorLibraryTest {
         int actual = evaluator.evaluate("6/2");
         assertEquals(expected, actual);
     }
+
+    @Test
+    public void test_power_of_two_integers() {
+        ExpressionEvaluatorLibrary evaluator = new ExpressionEvaluatorLibrary();
+        int expected = 4;
+        int actual = evaluator.evaluate("2^2");
+        assertEquals(expected, actual);
+    }
 }
