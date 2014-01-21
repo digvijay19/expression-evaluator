@@ -9,13 +9,18 @@ public class ExpressionEvaluatorLibrary {
         for (int i = 0; i < expression.length(); i++) {
             if ('+' == expression.charAt(i)) {
                 numberOne = Integer.parseInt(expression.substring(0, i));
-                numberTwo = Integer.parseInt(expression.substring(i, expression.length()));
+                numberTwo = Integer.parseInt(expression.substring(i+1, expression.length()));
                 result = numberOne + numberTwo;
             }
             if ('-' == expression.charAt(i)) {
                 numberOne = Integer.parseInt(expression.substring(0, i));
-                numberTwo = Integer.parseInt(expression.substring(i, expression.length()));
-                result = numberOne + numberTwo;
+                numberTwo = Integer.parseInt(expression.substring(i+1, expression.length()));
+                result = numberOne-numberTwo;
+            }
+            if ('*' == expression.charAt(i)) {
+                numberOne = Integer.parseInt(expression.substring(0, i));
+                numberTwo = Integer.parseInt(expression.substring(i+1, expression.length()));
+                result = numberOne*numberTwo;
             }
         }
         return result;

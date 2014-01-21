@@ -20,4 +20,11 @@ public class ExpressionEvaluatorLibraryTest {
         int actual = evaluator.evaluate("3-2");
         assertEquals(expected,actual);
     }
+    @Test
+    public void test_multiplication_of_two_integers() {
+        ExpressionEvaluatorLibrary evaluator = new ExpressionEvaluatorLibrary();
+        int expected = 6;
+        int actual = evaluator.evaluate("3*2");
+        assertEquals(expected,actual);
+    }
 }
