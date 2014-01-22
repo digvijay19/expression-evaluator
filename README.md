@@ -12,9 +12,22 @@ expression-evaluator evaluates the given expression.
 ### Release 0.1 :-
 
 * The expression takes one operation `( + , - , * , / , ^ )` and two operands
-* Do not support brackets `()`.
+* Does not support brackets `()`.
 * No spaces will be allowed in the expression.
 * Only positive Integers will be supported.
+* May not give proper result when result exceeds Integer type limit.`eg:- 2^31`
+* If the result of Division is in floating type, result will be parsed in Integer.
+
+### Release 0.2 :-
+
+* The expression can evaluate multiple operations.
+    `eg :- 2+3*2`
+* Operations available are `( + , - , * , / , ^ )`
+* Does not support brackets `()`.
+* No spaces will be allowed in the expression.
+* Only positive Integers will be supported.
+* May not give proper result when result exceeds Integer type limit.`eg:- 2^31`
+* If the result of Division is in floating type, result will be parsed in Integer.
 
 #### expression-evaluator :
 

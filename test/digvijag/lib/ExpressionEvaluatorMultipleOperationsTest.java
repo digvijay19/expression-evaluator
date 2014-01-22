@@ -23,7 +23,7 @@ public class ExpressionEvaluatorMultipleOperationsTest {
     }
 
     @Test
-     public void test_add_multiple_integers() {
+    public void test_add_multiple_integers() {
         ExpressionEvaluatorLibrary evaluator = new ExpressionEvaluatorLibrary();
         int expected = 10;
         int actual = evaluator.evaluate("2+3+2+2+1");

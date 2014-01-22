@@ -53,4 +53,5 @@ public class ExpressionEvaluatorLibraryTest {
         int actual = evaluator.evaluate("2");
         assertEquals(expected, actual);
     }
+
 }
