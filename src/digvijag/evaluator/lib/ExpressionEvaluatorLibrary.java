@@ -26,8 +26,8 @@ public class ExpressionEvaluatorLibrary {
         return singleOperation.evaluateOperation(modifiedExpression);
     }
 
-    private String getModifiedExpression(double numberToConcat, String tempExpression, int position) {
-        String one = Double.toString(numberToConcat);
+    private String getModifiedExpression(Integer numberToConcat, String tempExpression, int position) {
+        String one = Integer.toString(numberToConcat);
         String two = tempExpression.substring(position, tempExpression.length());
         return one + two;
     }
