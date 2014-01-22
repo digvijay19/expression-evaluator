@@ -1,64 +1,32 @@
 package digvijag.evaluator.lib;
 
 public class ExpressionEvaluatorLibrary {
-    int numberOne, numberTwo, result;
-
-    private int evaluateSingleOperation(String expression) {
-        for (int i = 0; i < expression.length(); i++) {
-            if ('+' == expression.charAt(i)) {
-                numberOne = Integer.parseInt(expression.substring(0, i));
-                numberTwo = Integer.parseInt(expression.substring(i + 1, expression.length()));
-                result = numberOne + numberTwo;
-                return result;
-            }
-            if ('-' == expression.charAt(i)) {
-                numberOne = Integer.parseInt(expression.substring(0, i));
-                numberTwo = Integer.parseInt(expression.substring(i + 1, expression.length()));
-                result = numberOne - numberTwo;
-                return result;
-            }
-            if ('*' == expression.charAt(i)) {
-                numberOne = Integer.parseInt(expression.substring(0, i));
-                numberTwo = Integer.parseInt(expression.substring(i + 1, expression.length()));
-                result = numberOne * numberTwo;
-                return result;
-            }
-            if ('/' == expression.charAt(i)) {
-                numberOne = Integer.parseInt(expression.substring(0, i));
-                numberTwo = Integer.parseInt(expression.substring(i + 1, expression.length()));
-                result = numberOne / numberTwo;
-                return result;
-            }
-            if ('^' == expression.charAt(i)) {
-                result = 1;
-                numberOne = Integer.parseInt(expression.substring(0, i));
-                numberTwo = Integer.parseInt(expression.substring(i + 1, expression.length()));
-                for (int j = 0; j < numberTwo; j++) {
-                    result *= numberOne;
-                }
-                return result;
-            }
-        }
-        return Integer.parseInt(expression);
-    }
 
     public int evaluate(String expression) {
-        String tempExpression = expression;
+        String modifiedExpression = expression;
         String singleExpression;
+        EvaluateSingleOperation singleOperation = new EvaluateSingleOperation();
+        String availableOperations = "+-*/^";
         int resultOfSingleOperation;
         int check = 0;
-        for (int i = 1; i < tempExpression.length(); i++) {
-            if ('+' == tempExpression.charAt(i)) {
+
+        for (int i = 1; i < modifiedExpression.length(); i++) {
+            String currentCharacter = Character.toString(modifiedExpression.charAt(i));
+            if (availableOperations.contains(currentCharacter)) {
                 check++;
                 if (check == 2) {
-                    singleExpression = tempExpression.substring(0, i);
-                    resultOfSingleOperation = this.evaluateSingleOperation(singleExpression);
-                    tempExpression = Integer.toString(resultOfSingleOperation) + tempExpression.substring(i, tempExpression.length());
+                    singleExpression = modifiedExpression.substring(0, i);
+                    resultOfSingleOperation = singleOperation.evaluateOperation(singleExpression);
+                    modifiedExpression = getModifiedExpression(resultOfSingleOperation, modifiedExpression, i);
                     check = 0;
                     i = 0;
                 }
             }
         }
-        return this.evaluateSingleOperation(tempExpression);
+        return singleOperation.evaluateOperation(modifiedExpression);
+    }
+
+    private String getModifiedExpression(int numberToConcat, String tempExpression, int position) {
+        return Integer.toString(numberToConcat) + tempExpression.substring(position, tempExpression.length());
     }
 }

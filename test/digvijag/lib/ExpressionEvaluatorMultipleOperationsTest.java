@@ -23,10 +23,18 @@ public class ExpressionEvaluatorMultipleOperationsTest {
     }
 
     @Test
-    public void test_add_multiple_integers() {
+     public void test_add_multiple_integers() {
         ExpressionEvaluatorLibrary evaluator = new ExpressionEvaluatorLibrary();
         int expected = 10;
         int actual = evaluator.evaluate("2+3+2+2+1");
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void test_subtraction_of_multiple_integers() {
+        ExpressionEvaluatorLibrary evaluator = new ExpressionEvaluatorLibrary();
+        int expected = 2;
+        int actual = evaluator.evaluate("4-1-1");
         assertEquals(expected, actual);
     }
 }
