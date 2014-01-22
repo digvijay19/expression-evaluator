@@ -65,8 +65,16 @@ public class ExpressionEvaluatorMultipleOperationsTest {
     @Test
     public void test_all_operation_in_expression() {
         ExpressionEvaluatorLibrary evaluator = new ExpressionEvaluatorLibrary();
-        int expected = 6;
-        int actual = evaluator.evaluate("2*2+2");
+        int expected = 9;
+        int actual = evaluator.evaluate("3*2+2/2-1^2");
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void test_addition_and_subtraction_in_expression() {
+        ExpressionEvaluatorLibrary evaluator = new ExpressionEvaluatorLibrary();
+        int expected = 4;
+        int actual = evaluator.evaluate("3+2-1");
         assertEquals(expected, actual);
     }
 }
