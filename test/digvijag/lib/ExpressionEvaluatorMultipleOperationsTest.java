@@ -13,4 +13,20 @@ public class ExpressionEvaluatorMultipleOperationsTest {
         int actual = evaluator.evaluate("2+3+2");
         assertEquals(expected, actual);
     }
+
+    @Test
+    public void test_add_four_integers() {
+        ExpressionEvaluatorLibrary evaluator = new ExpressionEvaluatorLibrary();
+        int expected = 9;
+        int actual = evaluator.evaluate("2+3+2+2");
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void test_add_multiple_integers() {
+        ExpressionEvaluatorLibrary evaluator = new ExpressionEvaluatorLibrary();
+        int expected = 10;
+        int actual = evaluator.evaluate("2+3+2+2+1");
+        assertEquals(expected, actual);
+    }
 }

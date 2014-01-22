@@ -44,16 +44,18 @@ public class ExpressionEvaluatorLibrary {
 
     public int evaluate(String expression) {
         String tempExpression = expression;
-        String singleExpression ;
+        String singleExpression;
         int resultOfSingleOperation;
         int check = 0;
         for (int i = 1; i < tempExpression.length(); i++) {
             if ('+' == tempExpression.charAt(i)) {
                 check++;
-                if(check > 1){
+                if (check == 2) {
                     singleExpression = tempExpression.substring(0, i);
                     resultOfSingleOperation = this.evaluateSingleOperation(singleExpression);
-                    tempExpression = Integer.toString(resultOfSingleOperation) + tempExpression.substring(i,tempExpression.length());
+                    tempExpression = Integer.toString(resultOfSingleOperation) + tempExpression.substring(i, tempExpression.length());
+                    check = 0;
+                    i = 0;
                 }
             }
         }
