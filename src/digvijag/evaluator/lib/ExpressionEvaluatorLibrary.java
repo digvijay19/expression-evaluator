@@ -5,12 +5,12 @@ public class ExpressionEvaluatorLibrary {
     public int evaluate(String expression) {
         String modifiedExpression = expression;
         String singleExpression;
-        EvaluateSingleOperation singleOperation = new EvaluateSingleOperation();
+        SingleOperationEvaluator singleOperation = new SingleOperationEvaluator();
         String availableOperations = "+-*/^";
         int resultOfSingleOperation;
         int check = 0;
 
-        for (int i = 1; i < modifiedExpression.length(); i++) {
+        for (int i = 0; i < modifiedExpression.length(); i++) {
             String currentCharacter = Character.toString(modifiedExpression.charAt(i));
             if (availableOperations.contains(currentCharacter)) {
                 check++;
@@ -27,6 +27,8 @@ public class ExpressionEvaluatorLibrary {
     }
 
     private String getModifiedExpression(int numberToConcat, String tempExpression, int position) {
-        return Integer.toString(numberToConcat) + tempExpression.substring(position, tempExpression.length());
+        String one = Integer.toString(numberToConcat);
+        String two = tempExpression.substring(position, tempExpression.length());
+        return one + two;
     }
 }

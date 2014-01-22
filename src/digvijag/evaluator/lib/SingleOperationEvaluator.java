@@ -1,7 +1,7 @@
 package digvijag.evaluator.lib;
 
 
-public class EvaluateSingleOperation {
+public class SingleOperationEvaluator {
     int numberOne, numberTwo, result;
 
     public int evaluateOperation(String expression) {
