@@ -1,4 +1,4 @@
-<project name="expression-evaluator" default = "createZip">
+<project name="expression-evaluator" default = "dist">
 
     <target name = "clean" description="cleans all the extra files generated for building.">
         <delete dir="build"/>
@@ -58,7 +58,7 @@
                  destdir="expression-evaluator/docs"/>
     </target>
 
-    <target name = "createZip" depends="createFolderStructure,jar,copyScript,copyReadme,createDocs">
+    <target name = "dist" depends="createFolderStructure,jar,copyScript,copyReadme,createDocs">
         <zip destfile = "expression-evaluator.zip" basedir = "expression-evaluator" update = "true"/>
         <delete dir="expression-evaluator"/>
     </target>
