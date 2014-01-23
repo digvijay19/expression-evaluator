@@ -11,6 +11,7 @@ public class ExpressionEvaluatorLibrary {
         int operationCheck = 0;
         if (modifiedExpression.contains("(")) {
             modifiedExpression = solveBrackets(expression);
+            return evaluate(modifiedExpression);
         }
         for (int i = 0; i < modifiedExpression.length(); i++) {
             String currentCharacter = Character.toString(modifiedExpression.charAt(i));
@@ -39,6 +40,7 @@ public class ExpressionEvaluatorLibrary {
             }
             if (')' == expression.charAt(index)) {
                 indexOfClosingBracket = index;
+                break;
             }
         }
         expressionInBracket = expression.substring(indexOfOpeningBracket + 1, indexOfClosingBracket);
