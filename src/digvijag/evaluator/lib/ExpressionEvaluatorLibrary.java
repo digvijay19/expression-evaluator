@@ -4,16 +4,24 @@ public class ExpressionEvaluatorLibrary {
 
     public int evaluate(String expression) {
         String modifiedExpression = expression;
-        String singleExpression;
-        SingleOperationEvaluator singleOperation = new SingleOperationEvaluator();
+
+        if (modifiedExpression.contains("(")) {
+            modifiedExpression = evaluateExpressionWithBrackets(expression);
+            return evaluate(modifiedExpression);
+        }
+
+        return evaluateExpression(expression);
+    }
+
+    private int evaluateExpression(String expression) {
+        String modifiedExpression = expression;
         String availableOperations = "+-*/^";
         int resultOfSingleOperation, resetValue = 0;
         int operationCheck = 0;
-        if (modifiedExpression.contains("(")) {
-            modifiedExpression = solveBrackets(expression);
-            return evaluate(modifiedExpression);
-        }
+        SingleOperationEvaluator singleOperation = new SingleOperationEvaluator();
+
         for (int i = 0; i < modifiedExpression.length(); i++) {
+            String singleExpression;
             String currentCharacter = Character.toString(modifiedExpression.charAt(i));
             if (availableOperations.contains(currentCharacter)) {
                 operationCheck++;
@@ -29,7 +37,7 @@ public class ExpressionEvaluatorLibrary {
         return singleOperation.evaluateOperation(modifiedExpression);
     }
 
-    private String solveBrackets(String expression) {
+    private String evaluateExpressionWithBrackets(String expression) {
         String newExpression, expressionInBracket;
         int indexOfOpeningBracket = 0;
         int indexOfClosingBracket = 0;
