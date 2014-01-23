@@ -9,6 +9,12 @@ expression-evaluator evaluates the given expression.
 * Set the environment variable with the name of `EVALUATOR_HOME`.
 * Use shell file to run evaluator.
 
+### Release 0.5 :-
+* This release can handle floating numbers. `eg:-2.1+3.1`
+* Operations available are `( + , - , * , / , ^ )`
+* Only unsigned numbers will be supported.
+* Release-0.1 one bugs fixed,works with `eg:-22/3 , 2^31`
+
 ### Release 0.4 :-
 * This release can handle multiple spaces in the operands and operations. `eg:- "3 + 2"`
 * Work with spaces or no spaces. `eg:- "3-2 + 1"`
