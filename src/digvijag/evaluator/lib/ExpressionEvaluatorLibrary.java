@@ -2,7 +2,7 @@ package digvijag.evaluator.lib;
 
 public class ExpressionEvaluatorLibrary {
 
-    public int evaluate(String expression) {
+    public double evaluate(String expression) {
         String modifiedExpression = expression;
 
         if (modifiedExpression.contains("(")) {
@@ -13,10 +13,11 @@ public class ExpressionEvaluatorLibrary {
         return evaluateExpression(expression);
     }
 
-    private int evaluateExpression(String expression) {
+    private double evaluateExpression(String expression) {
         String modifiedExpression = expression;
         String availableOperations = "+-*/^";
-        int resultOfSingleOperation, resetValue = 0;
+        Double resultOfSingleOperation;
+        int resetValue = 0;
         int operationCheck = 0;
         SingleOperationEvaluator singleOperation = new SingleOperationEvaluator();
 
@@ -41,7 +42,7 @@ public class ExpressionEvaluatorLibrary {
         String newExpression, expressionInBracket;
         int indexOfOpeningBracket = 0;
         int indexOfClosingBracket = 0;
-        int resultOfBracket;
+        double resultOfBracket;
         for (int index = 0; index < expression.length(); index++) {
             if ('(' == expression.charAt(index)) {
                 indexOfOpeningBracket = index;
@@ -53,12 +54,12 @@ public class ExpressionEvaluatorLibrary {
         }
         expressionInBracket = expression.substring(indexOfOpeningBracket + 1, indexOfClosingBracket);
         resultOfBracket = this.evaluate(expressionInBracket);
-        newExpression = expression.replace('(' + expressionInBracket + ')', Integer.toString(resultOfBracket));
+        newExpression = expression.replace('(' + expressionInBracket + ')', Double.toString(resultOfBracket));
         return newExpression;
     }
 
-    private String getModifiedExpression(int numberToConcat, String tempExpression, int position) {
-        String one = Integer.toString(numberToConcat);
+    private String getModifiedExpression(Double numberToConcat, String tempExpression, int position) {
+        String one = Double.toString(numberToConcat);
         String two = tempExpression.substring(position, tempExpression.length());
         return one + two;
     }
