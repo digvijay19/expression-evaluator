@@ -66,7 +66,7 @@ public class SingleOperationEvaluator {
                 operation = currentCharacter;
             }
         }
-
+        expression = expression.trim();
         if (operation == null) return Integer.parseInt(expression);
 
         return operationMap.get(operation).evaluate(leftOperand, rightOperand);
