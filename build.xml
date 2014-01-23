@@ -17,7 +17,7 @@
     </target>
 
     <target name = "test" depends = "compileTest">
-        <junit>
+        <junit haltonfailure="yes">
             <classpath>
                 <pathelement location="build/classes/src" />
                 <pathelement location="build/classes/test" />
@@ -52,13 +52,7 @@
         <copy file = "README.md" todir = "expression-evaluator"/>
     </target>
 
-    <target name = "createDocs">
-        <javadoc packagenames="digvijag.evaluator.*"
-                 sourcepath="src"
-                 destdir="expression-evaluator/docs"/>
-    </target>
-
-    <target name = "dist" depends="createFolderStructure,jar,copyScript,copyReadme,createDocs">
+    <target name = "dist" depends="createFolderStructure,jar,copyScript,copyReadme">
         <zip destfile = "expression-evaluator.zip" basedir = "expression-evaluator" update = "true"/>
         <delete dir="expression-evaluator"/>
     </target>
