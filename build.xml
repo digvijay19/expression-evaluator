@@ -33,28 +33,27 @@
     </target>
 
     <target name="jar" depends="test">
-        <jar destfile = "expression-evaluator/lib/evaluator.jar" basedir = "build/classes/src"/>
+        <jar destfile = "build/dist/lib/expression-evaluator.jar" basedir = "build/classes/src"/>
     </target>
 
     <target name="copyScript">
-        <copy todir = "expression-evaluator/bin">
+        <copy todir = "build/dist/bin">
             <fileset dir = "scripts"/>
         </copy>
     </target>
 
     <target name = "createFolderStructure">
-        <mkdir dir = "expression-evaluator"/>
-        <mkdir dir = "expression-evaluator/bin"/>
-        <mkdir dir = "expression-evaluator/lib"/>
+        <mkdir dir = "build/dist"/>
+        <mkdir dir = "build/dist/bin"/>
+        <mkdir dir = "build/dist/lib"/>
     </target>
 
     <target name = "copyReadme">
-        <copy file = "README.md" todir = "expression-evaluator"/>
+        <copy file = "README.md" todir = "build/dist"/>
     </target>
 
     <target name = "dist" depends="createFolderStructure,jar,copyScript,copyReadme">
-        <zip destfile = "expression-evaluator.zip" basedir = "expression-evaluator" update = "true"/>
-        <delete dir="expression-evaluator"/>
+        <zip destfile = "expression-evaluator.zip" basedir = "build/dist" update = "true"/>
     </target>
 
 </project>
