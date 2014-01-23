@@ -38,4 +38,20 @@ public class FloatingNumbersTest {
         double actual = evaluator.evaluate("2.1+3.1-1.0");
         assertEquals(expected, actual);
     }
+
+    @Test
+    public void test_floating_numbers_with_spaces() {
+        ExpressionEvaluatorLibrary evaluator = new ExpressionEvaluatorLibrary();
+        double expected = 4.2;
+        double actual = evaluator.evaluate(" 2.1 + 3.1 - 1.0 ");
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void test_floating_numbers_with_brackets() {
+        ExpressionEvaluatorLibrary evaluator = new ExpressionEvaluatorLibrary();
+        double expected = 4.2;
+        double actual = evaluator.evaluate(" ((2.1 + 3.1) - 1.0 )");
+        assertEquals(expected, actual);
+    }
 }
