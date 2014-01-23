@@ -21,13 +21,13 @@ public class ExpressionEvaluatorLibrary {
         SingleOperationEvaluator singleOperation = new SingleOperationEvaluator();
 
         for (int i = 0; i < modifiedExpression.length(); i++) {
-            String singleExpression;
+            String singleOperationExpression;
             String currentCharacter = Character.toString(modifiedExpression.charAt(i));
             if (availableOperations.contains(currentCharacter)) {
                 operationCheck++;
                 if (operationCheck == 2) {
-                    singleExpression = modifiedExpression.substring(0, i);
-                    resultOfSingleOperation = singleOperation.evaluateOperation(singleExpression);
+                    singleOperationExpression = modifiedExpression.substring(0, i);
+                    resultOfSingleOperation = singleOperation.evaluateOperation(singleOperationExpression);
                     modifiedExpression = getModifiedExpression(resultOfSingleOperation, modifiedExpression, i);
                     operationCheck = resetValue;
                     i = resetValue;

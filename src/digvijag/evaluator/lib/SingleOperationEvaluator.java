@@ -54,18 +54,21 @@ public class SingleOperationEvaluator {
     public int evaluateOperation(String expression) {
         String operations = "+-*/^";
         String operation = null;
-        int operand1 = 0, operand2 = 0;
+        int leftOperand = 0, rightOperand = 0;
+        String tempOperand;
         for (int i = 0; i < expression.length(); i++) {
             String currentCharacter = Character.toString(expression.charAt(i));
             if (operations.contains(currentCharacter)) {
-                operand1 = Integer.parseInt(expression.substring(0, i));
-                operand2 = Integer.parseInt(expression.substring(i + 1, expression.length()));
+                tempOperand = expression.substring(0, i).trim();
+                leftOperand = Integer.parseInt(tempOperand);
+                tempOperand = expression.substring(i + 1, expression.length()).trim();
+                rightOperand = Integer.parseInt(tempOperand);
                 operation = currentCharacter;
             }
         }
 
         if (operation == null) return Integer.parseInt(expression);
 
-        return operationMap.get(operation).evaluate(operand1, operand2);
+        return operationMap.get(operation).evaluate(leftOperand, rightOperand);
     }
 }
