@@ -9,6 +9,17 @@ expression-evaluator evaluates the given expression.
 * Set the environment variable with the name of `EVALUATOR_HOME`.
 * Use shell file to run evaluator.
 
+### Release 0.6 :-
+* Evaluator can handle signed numbers `eg:- -2 + 3`
+* Operations available are `( + , - , * , / , ^ )`
+* Evaluator can evaluate signed numbers with or without spaces.
+
+```
+    eg:- expression-evaluator.sh "-2+ -3"
+         expression-evaluator.sh " -2 + -3 "
+         expression-evaluator.sh "( -2+ (-3))"
+```
+
 ### Release 0.5 :-
 * This release can handle floating numbers. `eg:-2.1+3.1`
 * Operations available are `( + , - , * , / , ^ )`
