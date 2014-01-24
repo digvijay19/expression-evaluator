@@ -41,7 +41,8 @@ public class ExpressionEvaluatorLibrary {
 
     private String getExpressionWithoutSpacesForSignedNumbers(String expression) {
         return expression.replaceAll(" +", " ")
-                .replaceAll(" -", "-");
+                .replaceAll(" -", "-")
+                .replaceAll("- ", "-");
     }
 
     private String evaluateExpressionWithBrackets(String expression) {

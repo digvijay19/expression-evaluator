@@ -61,4 +61,12 @@ public class signedNumbersTest {
         double actual = evaluator.evaluate("(+2+ -1)");
         assertEquals(expected, actual);
     }
+
+    @Test
+    public void test_space_between_operator_and_its_sign() {
+        ExpressionEvaluatorLibrary evaluator = new ExpressionEvaluatorLibrary();
+        double expected = 1.5;
+        double actual = evaluator.evaluate("1.25 - - 0.25");
+        assertEquals(expected, actual);
+    }
 }
