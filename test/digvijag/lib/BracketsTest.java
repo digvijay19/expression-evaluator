@@ -45,4 +45,11 @@ public class BracketsTest {
         int actual = (int) evaluator.evaluate("(3+(2+1)+(1))");
         assertEquals(expected, actual);
     }
+
+    @Test(expected = NumberFormatException.class)
+    public void test_throws_exception_when_no_operation_provided() {
+        ExpressionEvaluatorLibrary evaluator = new ExpressionEvaluatorLibrary();
+        int actual = (int) evaluator.evaluate("3(3)");
+        System.out.println(actual);
+    }
 }

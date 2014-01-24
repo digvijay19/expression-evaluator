@@ -60,7 +60,7 @@ public class ExpressionEvaluatorLibrary {
         }
         expressionInBracket = expression.substring(indexOfOpeningBracket + 1, indexOfClosingBracket);
         resultOfBracket = this.evaluate(expressionInBracket);
-        newExpression = expression.replace('(' + expressionInBracket + ')', Double.toString(resultOfBracket));
+        newExpression = expression.replace('(' + expressionInBracket + ')', " " + Double.toString(resultOfBracket));
         return newExpression;
     }
 
