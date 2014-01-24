@@ -14,13 +14,13 @@ public class ExpressionEvaluatorLibrary {
     }
 
     private double evaluateExpression(String expression) {
-        String modifiedExpression = expression;
+        String modifiedExpression;
         String availableOperations = "+-*/^";
         Double resultOfSingleOperation;
         int resetValue = 0;
         int operationCheck = 0;
         SingleOperationEvaluator singleOperation = new SingleOperationEvaluator();
-
+        modifiedExpression = getExpressionWithoutSpacesForSignedNumbers(expression);
         for (int i = 1; i < modifiedExpression.length(); i++) {
             String singleOperationExpression;
             String currentCharacter = Character.toString(modifiedExpression.charAt(i));
@@ -37,6 +37,11 @@ public class ExpressionEvaluatorLibrary {
             }
         }
         return singleOperation.evaluateOperation(modifiedExpression);
+    }
+
+    private String getExpressionWithoutSpacesForSignedNumbers(String expression) {
+        return expression.replaceAll(" +", " ")
+                .replaceAll(" -", "-");
     }
 
     private String evaluateExpressionWithBrackets(String expression) {
