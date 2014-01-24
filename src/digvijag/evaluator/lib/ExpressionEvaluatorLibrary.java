@@ -21,7 +21,7 @@ public class ExpressionEvaluatorLibrary {
         int operationCheck = 0;
         SingleOperationEvaluator singleOperation = new SingleOperationEvaluator();
 
-        for (int i = 0; i < modifiedExpression.length(); i++) {
+        for (int i = 1; i < modifiedExpression.length(); i++) {
             String singleOperationExpression;
             String currentCharacter = Character.toString(modifiedExpression.charAt(i));
             if (availableOperations.contains(currentCharacter)) {
@@ -33,6 +33,7 @@ public class ExpressionEvaluatorLibrary {
                     operationCheck = resetValue;
                     i = resetValue;
                 }
+                i++;
             }
         }
         return singleOperation.evaluateOperation(modifiedExpression);

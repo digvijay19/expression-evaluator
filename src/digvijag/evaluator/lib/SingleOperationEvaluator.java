@@ -56,7 +56,7 @@ public class SingleOperationEvaluator {
         String operation = null;
         double leftOperand = 0, rightOperand = 0;
         String tempOperand;
-        for (int i = 0; i < expression.length(); i++) {
+        for (int i = 1; i < expression.length(); i++) {
             String currentCharacter = Character.toString(expression.charAt(i));
             if (operations.contains(currentCharacter)) {
                 tempOperand = expression.substring(0, i).trim();
@@ -64,6 +64,7 @@ public class SingleOperationEvaluator {
                 tempOperand = expression.substring(i + 1, expression.length()).trim();
                 rightOperand = Double.parseDouble(tempOperand);
                 operation = currentCharacter;
+                break;
             }
         }
         expression = expression.trim();
